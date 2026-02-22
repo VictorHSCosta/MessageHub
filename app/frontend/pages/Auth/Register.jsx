@@ -17,7 +17,15 @@ export default function Register({ errors: serverErrors = {} }) {
   }
 
   const goToLogin = () => {
-    document.documentElement.dataset.navDirection = 'backward'
+    const root = document.documentElement
+    root.dataset.navDirection = 'backward'
+
+    // Clear the navigation direction after this tick to avoid stale values
+    setTimeout(() => {
+      if (root.dataset.navDirection === 'backward') {
+        delete root.dataset.navDirection
+      }
+    }, 0)
   }
 
   const [showPassword, setShowPassword] = useState(false)
