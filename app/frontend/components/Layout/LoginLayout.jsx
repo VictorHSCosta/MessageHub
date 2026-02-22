@@ -11,16 +11,10 @@ const LoginAndSignUpLayout = ({ children }) => {
   const previousChildrenRef = useRef(children)
 
   useEffect(() => {
-    if (url === previousUrlRef.current) {
-      previousChildrenRef.current = children
-      return
-    }
+    if (url === previousUrlRef.current) return
 
     const nextDirection =
-      typeof document !== 'undefined' &&
-      document.documentElement.dataset.navDirection === 'backward'
-        ? 'backward'
-        : 'forward'
+      document.documentElement?.dataset.navDirection === 'backward' ? 'backward' : 'forward'
 
     setDirection(nextDirection)
     setPreviousView(previousChildrenRef.current)
@@ -36,7 +30,8 @@ const LoginAndSignUpLayout = ({ children }) => {
     previousChildrenRef.current = children
 
     return () => globalThis.clearTimeout(timeout)
-  }, [url, children])
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- `children` is intentionally omitted; JSX elements create new references each render, causing unnecessary effect runs. The correct children are captured via closure when `url` changes.
+  }, [url])
 
   return (
     <main className="font-[Inter] page-transition-root">
