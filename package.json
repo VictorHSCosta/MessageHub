@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@eslint/js": "^9.38.0",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "prettier": "^3.6.2",
+    "vite": "^7.1.12",
+    "vite-plugin-ruby": "^5.1.1"
+  },
+  "dependencies": {
+    "@inertiajs/react": "^2.2.12",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.1.16",
+    "@vitejs/plugin-react": "^5.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.16"
+  },
+  "scripts": {
+    "lint": "eslint 'app/frontend' --ext .js,.jsx --report-unused-disable-directives --max-warnings=0 --no-error-on-unmatched-pattern",
+    "lint:fix": "pnpm lint -- --fix",
+    "format": "prettier --write 'app/frontend/**/*.{js,jsx,css}'"
+  }
+}
