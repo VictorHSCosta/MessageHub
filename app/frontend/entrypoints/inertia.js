@@ -16,8 +16,6 @@ createInertiaApp({
       return page
     }
 
-    console.log(name)
-
     // Define o layout se não existir um específico na página
     if (name === 'Auth/Login' || name === 'Auth/Register') {
       page.default.layout =
