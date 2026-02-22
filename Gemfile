@@ -71,7 +71,7 @@ group :development, :test do
   gem "database_cleaner-active_record"
 end
 
-gem "dotenv-rails", "~> 3.1", groups: [ :development, :test ]
+gem "dotenv-rails", "~> 3.2", groups: [ :development, :test ]
 
 gem "inertia_rails", "~> 3.11"
 
