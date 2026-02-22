@@ -1,4 +1,4 @@
-import { Link, useForm } from '@inertiajs/react';
+import { Link, useForm } from '@inertiajs/react'
 
 export default function Register({ errors: serverErrors = {} }) {
   const { data, setData, post, processing, errors } = useForm({
@@ -6,35 +6,42 @@ export default function Register({ errors: serverErrors = {} }) {
       email: '',
       password: '',
       password_confirmation: '',
-    }
-  });
+    },
+  })
 
   const submit = (e) => {
-    e.preventDefault();
-    post('/users');
-  };
+    e.preventDefault()
+    post('/users')
+  }
 
   const goToLogin = () => {
-    document.documentElement.dataset.navDirection = 'backward';
-  };
+    document.documentElement.dataset.navDirection = 'backward'
+  }
 
   // Mescla erros do servidor com erros do cliente
-  const allErrors = { ...serverErrors, ...errors };
+  const allErrors = { ...serverErrors, ...errors }
 
   return (
-    <div className="flex justify-between w-full h-screen">
-      <div className="h-screen w-1/2 bg-sky-200 flex items-center justify-center">
-        <img src="/login.png" className="w-1/2 h-1/2 object-cover" alt="Ilustração de cadastro" />
+    <div className="flex min-h-screen w-full flex-col lg:h-screen lg:flex-row">
+      <div className="flex h-56 w-full items-center justify-center bg-violet-200 sm:h-72 lg:h-screen lg:w-1/2">
+        <img
+          src="/login.png"
+          className="h-40 w-40 object-cover sm:h-56 sm:w-56 lg:h-1/2 lg:w-1/2"
+          alt="Ilustração de cadastro"
+        />
       </div>
-      <div className="flex flex-col justify-center items-center w-1/2 gap-12">
-        <h2 className="text-2xl capitalize font-semibold text-sky-800">
+      <div className="flex w-full flex-col items-center justify-center gap-8 px-6 py-10 sm:px-8 lg:w-1/2 lg:gap-12 lg:px-10">
+        <h2 className="text-center text-xl font-semibold capitalize text-violet-800 sm:text-2xl">
           Crie sua conta no MessageHub
         </h2>
 
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="w-full max-w-sm">
           <form className="space-y-6" onSubmit={submit}>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-sky-900">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium leading-6 text-violet-900"
+              >
                 Email
               </label>
               <input
@@ -44,16 +51,17 @@ export default function Register({ errors: serverErrors = {} }) {
                 autoComplete="email"
                 required
                 value={data.user.email}
-                onChange={e => setData('user', { ...data.user, email: e.target.value })}
-                className="block w-full rounded-md border-0 text-sky-900 shadow-sm ring-1 ring-inset ring-sky-300 placeholder:text-sky-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4 py-2"
+                onChange={(e) => setData('user', { ...data.user, email: e.target.value })}
+                className="block w-full rounded-md border-0 text-violet-900 shadow-sm ring-1 ring-inset ring-violet-300 placeholder:text-violet-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 px-4 py-2"
               />
-              {allErrors.email && (
-                <p className="mt-1 text-sm text-red-600">{allErrors.email[0]}</p>
-              )}
+              {allErrors.email && <p className="mt-1 text-sm text-red-600">{allErrors.email[0]}</p>}
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium leading-6 text-sky-900">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium leading-6 text-violet-900"
+              >
                 Senha
               </label>
               <input
@@ -63,8 +71,8 @@ export default function Register({ errors: serverErrors = {} }) {
                 autoComplete="new-password"
                 required
                 value={data.user.password}
-                onChange={e => setData('user', { ...data.user, password: e.target.value })}
-                className="block w-full rounded-md border-0 text-sky-900 shadow-sm ring-1 ring-inset ring-sky-300 placeholder:text-sky-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4 py-2"
+                onChange={(e) => setData('user', { ...data.user, password: e.target.value })}
+                className="block w-full rounded-md border-0 text-violet-900 shadow-sm ring-1 ring-inset ring-violet-300 placeholder:text-violet-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 px-4 py-2"
               />
               {allErrors.password && (
                 <p className="mt-1 text-sm text-red-600">{allErrors.password[0]}</p>
@@ -72,7 +80,10 @@ export default function Register({ errors: serverErrors = {} }) {
             </div>
 
             <div>
-              <label htmlFor="password_confirmation" className="block text-sm font-medium leading-6 text-sky-900">
+              <label
+                htmlFor="password_confirmation"
+                className="block text-sm font-medium leading-6 text-violet-900"
+              >
                 Confirmar Senha
               </label>
               <input
@@ -82,8 +93,10 @@ export default function Register({ errors: serverErrors = {} }) {
                 autoComplete="new-password"
                 required
                 value={data.user.password_confirmation}
-                onChange={e => setData('user', { ...data.user, password_confirmation: e.target.value })}
-                className="block w-full rounded-md border-0 text-sky-900 shadow-sm ring-1 ring-inset ring-sky-300 placeholder:text-sky-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6 px-4 py-2"
+                onChange={(e) =>
+                  setData('user', { ...data.user, password_confirmation: e.target.value })
+                }
+                className="block w-full rounded-md border-0 text-violet-900 shadow-sm ring-1 ring-inset ring-violet-300 placeholder:text-violet-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 px-4 py-2"
               />
               {allErrors.password_confirmation && (
                 <p className="mt-1 text-sm text-red-600">{allErrors.password_confirmation[0]}</p>
@@ -93,17 +106,17 @@ export default function Register({ errors: serverErrors = {} }) {
             <button
               type="submit"
               disabled={processing}
-              className="flex w-full justify-center rounded-md bg-sky-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 disabled:bg-sky-300"
+              className="flex w-full justify-center rounded-md bg-violet-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 disabled:bg-violet-300"
             >
               {processing ? 'Cadastrando...' : 'Cadastrar'}
             </button>
           </form>
 
-          <p className="mt-10 text-center text-sm text-sky-900">
+          <p className="mt-10 text-center text-sm text-violet-900">
             Já tem uma conta?{' '}
             <Link
               href="/users/sign_in"
-              className="font-semibold leading-6 text-sky-600 hover:text-sky-500"
+              className="font-semibold leading-6 text-violet-600 hover:text-violet-500"
               viewTransition
               onClick={goToLogin}
             >
@@ -113,5 +126,5 @@ export default function Register({ errors: serverErrors = {} }) {
         </div>
       </div>
     </div>
-  );
+  )
 }

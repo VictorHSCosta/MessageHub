@@ -3,7 +3,8 @@ import './application.css'
 import { createInertiaApp } from '@inertiajs/react'
 import { createElement } from 'react'
 import { createRoot } from 'react-dom/client'
-import Layout from '../components/Layout'
+import LoginAndSignUpLayout from '../components/Layout/LoginLayout'
+import SignInLayout from '../components/Layout/SignInLayout'
 
 createInertiaApp({
   resolve: (name) => {
@@ -15,8 +16,18 @@ createInertiaApp({
       return page
     }
 
+    console.log(name)
+
     // Define o layout se não existir um específico na página
-    page.default.layout = page.default.layout || ((pageComponent) => createElement(Layout, { children: pageComponent }))
+    if (name === 'Auth/Login' || name === 'Auth/Register') {
+      page.default.layout =
+        page.default.layout ||
+        ((pageComponent) => createElement(LoginAndSignUpLayout, { children: pageComponent }))
+    } else {
+      page.default.layout =
+        page.default.layout ||
+        ((pageComponent) => createElement(SignInLayout, { children: pageComponent }))
+    }
 
     return page
   },
