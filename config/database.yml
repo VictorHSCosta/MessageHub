@@ -9,27 +9,27 @@ default: &default
 
 development:
   <<: *default
-  database: organiza_feature_development
+  database: message_hub_development
 
 test:
   <<: *default
-  database: organiza_feature_test
+  database: message_hub_test
 
 production:
   primary: &primary_production
     <<: *default
-    database: organiza_feature_production
-    username: organiza_feature
-    password: <%= ENV["ORGANIZA_FEATURE_DATABASE_PASSWORD"] %>
+    database: message_hub_production
+    username: message_hub
+    password: <%= ENV["MESSAGE_HUB_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
-    database: organiza_feature_production_cache
+    database: message_hub_production_cache
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: organiza_feature_production_queue
+    database: message_hub_production_queue
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: organiza_feature_production_cable
+    database: message_hub_production_cable
     migrations_paths: db/cable_migrate
