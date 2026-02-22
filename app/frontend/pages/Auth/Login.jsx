@@ -62,7 +62,7 @@ export default function Login() {
                 onClick={() => setShowPassword(!showPassword)}
                 className="text-sm text-cyan-600 hover:text-cyan-500 mt-1 absolute right-3 top-8"
               >
-                {showPassword ? <EyeClosed className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                {showPassword ? <Eye className="w-4 h-4" /> : <EyeClosed className="w-4 h-4" />}
               </button>
               {errors.password && (
                 <div className="text-red-500 text-xs mt-1">{errors.password}</div>
