@@ -91,6 +91,9 @@ export default function Register({ errors: serverErrors = {} }) {
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-8 mt-1 text-sm text-violet-600 hover:text-violet-500"
+                aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
+                aria-pressed={showPassword}
+                aria-controls="password"
               >
                 {showPassword ? <Eye className="h-4 w-4" /> : <EyeClosed className="h-4 w-4" />}
               </button>
