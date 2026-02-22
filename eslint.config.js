@@ -43,6 +43,7 @@ export default [
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
       'react/jsx-uses-vars': 'error',
+      'no-console': ['error', { allow: ['warn', 'error'] }],
     },
     settings: {
       react: { version: 'detect' },
