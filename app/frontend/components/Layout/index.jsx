@@ -1,6 +1,6 @@
 const Layout = ({ children }) => {
   return (
-    <main>
+    <main className="font-[Inter]">
       <article>{children}</article>
     </main>
   )
