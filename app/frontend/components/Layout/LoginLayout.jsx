@@ -10,6 +10,7 @@ const LoginAndSignUpLayout = ({ children }) => {
   const [isAnimating, setIsAnimating] = useState(false)
   const previousUrlRef = useRef(url)
   const previousChildrenRef = useRef(children)
+  const animationTimeoutRef = useRef(null)
 
   useEffect(() => {
     if (url === previousUrlRef.current) {
@@ -23,7 +24,7 @@ const LoginAndSignUpLayout = ({ children }) => {
     setCurrentView(children)
     setIsAnimating(true)
 
-    const timeout = globalThis.setTimeout(() => {
+    animationTimeoutRef.current = setTimeout(() => {
       setPreviousView(null)
       setIsAnimating(false)
     }, 460)
@@ -31,7 +32,7 @@ const LoginAndSignUpLayout = ({ children }) => {
     previousUrlRef.current = url
     previousChildrenRef.current = children
 
-    return () => globalThis.clearTimeout(timeout)
+    return () => clearTimeout(animationTimeoutRef.current)
   }, [url, children])
 
   return (
