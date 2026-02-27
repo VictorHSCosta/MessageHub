@@ -118,6 +118,9 @@ export default function Register({ errors: serverErrors = {} }) {
                 type="button"
                 onClick={() => setShowPasswordConfirmation(!showPasswordConfirmation)}
                 className="absolute right-3 top-8 mt-1 text-sm text-violet-600 hover:text-violet-500"
+                aria-label={showPasswordConfirmation ? 'Ocultar confirmação de senha' : 'Mostrar confirmação de senha'}
+                aria-pressed={showPasswordConfirmation}
+                aria-controls="password_confirmation"
               >
                 {showPasswordConfirmation ? (
                   <Eye className="h-4 w-4" />
