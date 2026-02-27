@@ -18,6 +18,12 @@ export default function Login() {
 
   const goToRegister = () => {
     document.documentElement.dataset.navDirection = 'forward'
+    // Clear the navigation direction after the next frame to avoid stale values
+    window.requestAnimationFrame(() => {
+      if (document.documentElement.dataset.navDirection === 'forward') {
+        delete document.documentElement.dataset.navDirection
+      }
+    })
   }
 
   const [showPassword, setShowPassword] = useState(false)
