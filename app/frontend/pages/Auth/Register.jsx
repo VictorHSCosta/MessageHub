@@ -40,7 +40,7 @@ export default function Register({ errors: serverErrors = {} }) {
         <img
           src="/login.png"
           className="h-40 w-40 object-cover sm:h-56 sm:w-56 lg:h-1/2 lg:w-1/2"
-          alt="Ilustração de cadastro"
+          alt="Ilustração da tela de autenticação do MessageHub"
         />
       </div>
       <div className="flex w-full flex-col items-center justify-center gap-8 px-6 py-10 sm:px-8 lg:w-1/2 lg:gap-12 lg:px-10">
