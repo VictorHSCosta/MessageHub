@@ -1,3 +1,74 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-/* Personalizações do Tailwind v4 podem ser feitas aqui usando @theme */
+@keyframes push-old-to-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes push-new-from-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes push-old-to-right {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes push-new-from-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.page-transition-root {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-layer {
+  width: 100%;
+}
+
+.page-layer.previous {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.page-layer.current {
+  position: relative;
+  z-index: 2;
+}
+
+.page-layer.previous.animating.forward {
+  animation: push-old-to-left 460ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.page-layer.current.animating.forward {
+  animation: push-new-from-right 460ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.page-layer.previous.animating.backward {
+  animation: push-old-to-right 460ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.page-layer.current.animating.backward {
+  animation: push-new-from-left 460ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
