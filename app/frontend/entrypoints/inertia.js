@@ -4,7 +4,7 @@ import { createInertiaApp } from '@inertiajs/react'
 import { createElement } from 'react'
 import { createRoot } from 'react-dom/client'
 import LoginAndSignUpLayout from '../components/Layout/LoginLayout'
-import SignInLayout from '../components/Layout/SignInLayout'
+import DefaultLayout from '../components/Layout/DefaultLayout'
 
 createInertiaApp({
   resolve: (name) => {
@@ -24,7 +24,7 @@ createInertiaApp({
     } else {
       page.default.layout =
         page.default.layout ||
-        ((pageComponent) => createElement(SignInLayout, { children: pageComponent }))
+        ((pageComponent) => createElement(DefaultLayout, { children: pageComponent }))
     }
 
     return page
