@@ -16,12 +16,13 @@ const LoginAndSignUpLayout = ({ children }) => {
       return
     }
 
-    const nextDirection =
-      typeof document !== 'undefined' &&
-      document.documentElement.dataset.navDirection === 'backward'
-        ? 'backward'
-        : 'forward'
+    let nextDirection = 'forward'
 
+    if (typeof document !== 'undefined') {
+      const { navDirection } = document.documentElement.dataset
+      nextDirection = navDirection === 'backward' ? 'backward' : 'forward'
+      delete document.documentElement.dataset.navDirection
+    }
     setDirection(nextDirection)
     setPreviousView(previousChildrenRef.current)
     setCurrentView(children)
