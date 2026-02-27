@@ -1,6 +1,7 @@
 import { Link, useForm } from '@inertiajs/react'
 import { useState } from 'react'
 import { Eye, EyeClosed } from 'lucide-react'
+import { markNavDirection } from '../../utils/navigationDirection'
 
 export default function Register({ errors: serverErrors = {} }) {
   const { data, setData, post, processing, errors } = useForm({
@@ -17,15 +18,7 @@ export default function Register({ errors: serverErrors = {} }) {
   }
 
   const goToLogin = () => {
-    const root = document.documentElement
-    root.dataset.navDirection = 'backward'
-
-    // Clear the navigation direction after this tick to avoid stale values
-    setTimeout(() => {
-      if (root.dataset.navDirection === 'backward') {
-        delete root.dataset.navDirection
-      }
-    }, 0)
+    markNavDirection('backward')
   }
 
   const [showPassword, setShowPassword] = useState(false)

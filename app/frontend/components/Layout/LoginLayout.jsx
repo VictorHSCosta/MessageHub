@@ -1,5 +1,6 @@
 import { usePage } from '@inertiajs/react'
 import { useEffect, useRef, useState } from 'react'
+import { consumeNavDirection } from '../../utils/navigationDirection'
 
 const LoginAndSignUpLayout = ({ children }) => {
   const { url } = usePage()
@@ -17,13 +18,7 @@ const LoginAndSignUpLayout = ({ children }) => {
       return
     }
 
-    let nextDirection = 'forward'
-
-    if (typeof document !== 'undefined') {
-      const { navDirection } = document.documentElement.dataset
-      nextDirection = navDirection === 'backward' ? 'backward' : 'forward'
-      delete document.documentElement.dataset.navDirection
-    }
+    const nextDirection = consumeNavDirection()
     setDirection(nextDirection)
     setPreviousView(previousChildrenRef.current)
     setCurrentView(children)
