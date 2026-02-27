@@ -44,7 +44,7 @@ export default function Login() {
                 type="email"
                 value={data.user.email}
                 onChange={(e) => setData('user', { ...data.user, email: e.target.value })}
-                className="block w-full rounded-md border-0  text-cyan-900 shadow-sm ring-1 ring-inset ring-cyan-300 placeholder:text-cyan-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6 px-4 py-2"
+                className="block w-full rounded-md border-0 text-cyan-900 shadow-sm ring-1 ring-inset ring-cyan-300 placeholder:text-cyan-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6 px-4 py-2"
               />
               {errors.email && <div className="text-red-500 text-xs mt-1">{errors.email}</div>}
             </div>
@@ -55,7 +55,7 @@ export default function Login() {
                 type={showPassword ? 'text' : 'password'}
                 value={data.user.password}
                 onChange={(e) => setData('user', { ...data.user, password: e.target.value })}
-                className="block w-full rounded-md border-0  text-cyan-900 shadow-sm ring-1 ring-inset ring-cyan-300 placeholder:text-cyan-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6 px-4 py-2"
+                className="block w-full rounded-md border-0 text-cyan-900 shadow-sm ring-1 ring-inset ring-cyan-300 placeholder:text-cyan-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6 px-4 py-2"
               />
               <button
                 type="button"
