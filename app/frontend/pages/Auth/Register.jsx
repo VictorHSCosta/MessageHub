@@ -118,7 +118,11 @@ export default function Register({ errors: serverErrors = {} }) {
                 type="button"
                 onClick={() => setShowPasswordConfirmation(!showPasswordConfirmation)}
                 className="absolute right-3 top-8 mt-1 text-sm text-violet-600 hover:text-violet-500"
-                aria-label={showPasswordConfirmation ? 'Ocultar confirmação de senha' : 'Mostrar confirmação de senha'}
+                aria-label={
+                  showPasswordConfirmation
+                    ? 'Ocultar confirmação de senha'
+                    : 'Mostrar confirmação de senha'
+                }
                 aria-pressed={showPasswordConfirmation}
                 aria-controls="password_confirmation"
               >
@@ -136,7 +140,7 @@ export default function Register({ errors: serverErrors = {} }) {
             <button
               type="submit"
               disabled={processing}
-              className="flex w-full justify-center rounded-md bg-violet-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 disabled:bg-violet-300"
+              className="flex w-full justify-center rounded-md bg-violet-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-violet-600 disabled:bg-violet-300"
             >
               {processing ? 'Cadastrando...' : 'Cadastrar'}
             </button>
