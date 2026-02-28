@@ -11,4 +11,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum :role, { admin: 0, user: 1 }
+
+  validates :name, presence: true
 end
