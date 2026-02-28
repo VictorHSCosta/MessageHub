@@ -69,6 +69,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "factory_bot_rails"
   gem "database_cleaner-active_record"
+  gem "shoulda-matchers", "~> 6.2"
 end
 
 gem "dotenv-rails", "~> 3.1", groups: [ :development, :test ]
