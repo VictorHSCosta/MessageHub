@@ -75,7 +75,7 @@ gem "dotenv-rails", "~> 3.1", groups: [ :development, :test ]
 
 gem "inertia_rails", "~> 3.17"
 
-gem "vite_rails", "~> 3.0"
+gem "vite_rails", "~> 3.10"
 
 gem "devise", "~> 5.0"
 
