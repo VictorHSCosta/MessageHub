@@ -30,7 +30,8 @@ Below is the initial entity-relationship diagram for the project:
   Example: ![Database Schema](./docs/schema.png) 
 -->
 
-![alt text](<Captura de tela de 2026-06-01 22-18-25.png>)
+<img width="1393" height="872" alt="image" src="https://github.com/user-attachments/assets/6886199b-01e5-48e7-badc-53a26edf52d1" />
+
 
 
 ---
