@@ -1,2 +1,15 @@
 #!/usr/bin/env ruby
-exec "./bin/rails", "server", *ARGV
+
+require "fileutils"
+
+Dir.chdir File.expand_path("..", __dir__)
+
+if ARGV.first == "help"
+  puts "Usage: bin/dev"
+  exit
+end
+
+system "bundle install"
+system "pnpm install"
+
+exec "bundle exec foreman start -f Procfile.dev"

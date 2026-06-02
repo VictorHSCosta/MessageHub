@@ -1,24 +1,86 @@
-# README
+# MessageHub
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+MessageHub is a WhatsApp clone built for educational purposes. The main goal of this project is to master modern Ruby on Rails features and frontend integration patterns.
 
-Things you may want to cover:
+## 🚀 Learning Goals
 
-* Ruby version
+This project is a deep dive into:
+- **Hotwire (Turbo & Stimulus):** Building reactive, SPA-like interfaces without complex JavaScript frameworks.
+- **Stimulus JS:** Creating reusable and modular frontend components to enhance user experience.
+- **Pure Rails Pagination:** Implementing efficient data handling and navigation using native Rails patterns.
+- **Tiptap Integration:** Mastering rich-text editing and real-time feedback within the Rails ecosystem.
+- **Modern Asset Pipeline:** Using `pnpm`, `esbuild`, and `Tailwind CSS v4` for a fast development workflow.
 
-* System dependencies
+## 🛠 Tech Stack
 
-* Configuration
+- **Backend:** Ruby on Rails 8.1.x
+- **Frontend:** Hotwire (Turbo Drive/Frames/Streams), Stimulus JS
+- **Styling:** Tailwind CSS v4
+- **Package Manager:** pnpm
+- **Database:** PostgreSQL
+- **Testing:** RSpec, Factory Bot
+- **Linter:** RuboCop (Ruby), ESLint (JavaScript)
 
-* Database creation
+## 📊 Database Schema
 
-* Database initialization
+Below is the initial entity-relationship diagram for the project:
 
-* How to run the test suite
+<!-- 
+  TODO: Paste your database diagram image link below.
+  Example: ![Database Schema](./docs/schema.png) 
+-->
 
-* Services (job queues, cache servers, search engines, etc.)
+![alt text](<Captura de tela de 2026-06-01 22-18-25.png>)
 
-* Deployment instructions
 
-* ...
+---
+
+## ⚙️ Getting Started
+
+### Prerequisites
+
+- Ruby 3.x
+- Node.js & pnpm
+- PostgreSQL
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/MessageHub.git
+   cd MessageHub
+   ```
+
+2. **Setup environment variables:**
+   ```bash
+   cp .env.sample .env
+   # Update .env with your local database credentials if necessary
+   ```
+
+3. **Install dependencies and setup database:**
+   ```bash
+   ./bin/setup
+   ```
+
+4. **Run the development server:**
+   ```bash
+   ./bin/dev
+   ```
+
+## 🧪 Running Tests
+
+To run the RSpec test suite:
+```bash
+bundle exec rspec
+```
+
+## 🧹 Quality Control
+
+- **Ruby:** `bundle exec rubocop`
+- **JavaScript:** `pnpm lint`
+
+---
+
+## 📝 License
+
+This project is open-source and available under the [MIT License](LICENSE).
