@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
   <head>
     <title><%= content_for(:title) || "Message Hub" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,6 +10,10 @@
     <%= csp_meta_tag %>
 
     <%= yield :head %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
@@ -22,10 +26,21 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <body class="h-full bg-app-bg-light dark:bg-app-bg-dark text-text-primary-light dark:text-text-primary-dark">
+    <% if notice %>
+      <div class="fixed top-4 right-4 z-50 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg border border-green-600 font-medium animate-in fade-in slide-in-from-top-4 duration-300">
+        <%= notice %>
+      </div>
+    <% end %>
 
-    <%= yield %>
+    <% if alert %>
+      <div class="fixed top-4 right-4 z-50 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg border border-red-600 font-medium animate-in fade-in slide-in-from-top-4 duration-300">
+        <%= alert %>
+      </div>
+    <% end %>
+
+    <main class="h-full">
+      <%= yield %>
+    </main>
   </body>
 </html>

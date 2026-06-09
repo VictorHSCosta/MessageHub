@@ -1,42 +1,64 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-app-bg-light dark:bg-app-bg-dark transition-colors duration-300">
+  <div class="max-w-md w-full space-y-8 bg-white dark:bg-received-bubble-dark p-10 rounded-3xl shadow-2xl border border-border-light dark:border-border-dark">
+    <div>
+      <div class="mx-auto h-16 w-16 bg-brand-primary rounded-2xl flex items-center justify-center shadow-lg shadow-brand-primary/30 mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+        </svg>
+      </div>
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-text-primary-light dark:text-text-primary-dark">
+        Editar Perfil
+      </h2>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "mt-8 space-y-6" }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <p><%= f.label :email %></p>
-    <p><%= f.email_field :email, autofocus: true, autocomplete: "email" %></p>
-  </div>
+      <div class="space-y-4">
+        <div>
+          <%= f.label :email, "E-mail", class: "block text-sm font-medium text-text-primary-light/70 dark:text-text-primary-dark/70 mb-1" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none block w-full px-4 py-3 border border-border-light dark:border-border-dark rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-primary bg-app-bg-light/50 dark:bg-app-bg-dark/50 text-text-primary-light dark:text-text-primary-dark sm:text-sm" %>
+        </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div class="text-xs text-yellow-600 dark:text-yellow-400 bg-yellow-50 dark:bg-yellow-900/20 p-2 rounded-lg">
+            Aguardando confirmação para: <%= resource.unconfirmed_email %>
+          </div>
+        <% end %>
 
-  <div class="field">
-    <p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i></p>
-    <p><%= f.password_field :password, autocomplete: "new-password" %></p>
-    <% if @minimum_password_length %>
-      <p><em><%= @minimum_password_length %> characters minimum</em></p>
+        <div class="pt-4 border-t border-border-light dark:border-border-dark">
+          <div class="flex justify-between items-center mb-1">
+            <%= f.label :password, "Nova senha", class: "block text-sm font-medium text-text-primary-light/70 dark:text-text-primary-dark/70" %>
+            <span class="text-xs text-text-primary-light/40 dark:text-text-primary-dark/40">(deixe em branco se não quiser alterar)</span>
+          </div>
+          <%= f.password_field :password, autocomplete: "new-password", class: "appearance-none block w-full px-4 py-3 border border-border-light dark:border-border-dark rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-primary bg-app-bg-light/50 dark:bg-app-bg-dark/50 text-text-primary-light dark:text-text-primary-dark sm:text-sm" %>
+        </div>
+
+        <div>
+          <%= f.label :password_confirmation, "Confirme a nova senha", class: "block text-sm font-medium text-text-primary-light/70 dark:text-text-primary-dark/70 mb-1" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "appearance-none block w-full px-4 py-3 border border-border-light dark:border-border-dark rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-primary bg-app-bg-light/50 dark:bg-app-bg-dark/50 text-text-primary-light dark:text-text-primary-dark sm:text-sm" %>
+        </div>
+
+        <div class="pt-4 border-t border-border-light dark:border-border-dark">
+          <%= f.label :current_password, "Senha atual", class: "block text-sm font-medium text-text-primary-light/70 dark:text-text-primary-dark/70 mb-1" %>
+          <p class="text-xs text-text-primary-light/40 dark:text-text-primary-dark/40 mb-2">(precisamos da sua senha atual para confirmar as alterações)</p>
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "appearance-none block w-full px-4 py-3 border border-border-light dark:border-border-dark rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-primary bg-app-bg-light/50 dark:bg-app-bg-dark/50 text-text-primary-light dark:text-text-primary-dark sm:text-sm" %>
+        </div>
+      </div>
+
+      <div>
+        <%= f.submit "Atualizar", class: "w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-xl text-white bg-brand-primary hover:bg-brand-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary shadow-lg shadow-brand-primary/30 transition-all active:scale-95" %>
+      </div>
     <% end %>
+
+    <div class="pt-8 mt-8 border-t border-border-light dark:border-border-dark">
+      <h3 class="text-lg font-bold text-red-600 dark:text-red-400 mb-2">Encerrar conta</h3>
+      <p class="text-sm text-text-primary-light/60 dark:text-text-primary-dark/60 mb-4">Infeliz com o serviço? Você pode apagar sua conta permanentemente.</p>
+      <%= button_to "Apagar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza?" }, method: :delete, class: "text-sm text-red-600 dark:text-red-400 font-semibold hover:underline" %>
+    </div>
+
+    <div class="text-center mt-6">
+      <%= link_to "Voltar", :back, class: "text-text-primary-light/40 dark:text-text-primary-dark/40 hover:text-brand-primary transition-colors text-sm font-medium" %>
+    </div>
   </div>
-
-  <div class="field">
-    <p><%= f.label :password_confirmation %></p>
-    <p><%= f.password_field :password_confirmation, autocomplete: "new-password" %></p>
-  </div>
-
-  <div class="field">
-    <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i></p>
-    <p><%= f.password_field :current_password, autocomplete: "current-password" %></p>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+</div>
