@@ -1,1 +1,16 @@
-<input type="text" <%= %(name="#{@name}") if @name.present? %>>
+<div class="relative" data-controller="input">
+    <input 
+        type="<%= input_type %>"
+        placeholder="<%= @placeholder || "Enter your text here" %>"
+        class="block w-full px-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600 transition-all duration-200"
+        <%= %(value="#{@value}") if @value.present? %>>
+    <button
+        type="button"
+        class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5 cursor-pointer"
+        data-action="input#togglePassword">
+       <div>
+        <%= helpers.lucide_icon("eye", class: "hidden", data: { input_target: "eye" }) %>
+        <%= helpers.lucide_icon("eye-off", class: "block", data: { input_target: "eyeOff" }) %>
+       </div> 
+    </button>
+</div>
