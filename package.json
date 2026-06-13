@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/esbuild app/javascript/application.js --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets",
+    "build": "vite build",
     "build:css": "./node_modules/.bin/tailwindcss -i app/assets/stylesheets/application.css -o app/assets/builds/application.css --minify",
     "lint": "eslint app/javascript",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,6 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@tailwindcss/cli": "^4.3.0",
-    "esbuild": "^0.28.0",
     "eslint": "^10.4.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
@@ -27,6 +26,7 @@
     "@hotwired/turbo-rails": "^8.0.23",
     "autoprefixer": "^10.5.0",
     "postcss": "^8.5.15",
-    "tailwindcss": "^4.3.0"
+    "tailwindcss": "^4.3.0",
+    "vite": "^7.2.7"
   }
 }

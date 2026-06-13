@@ -73,3 +73,4 @@ gem "devise", "~> 5.0"
 
 gem "view_component"
 
+gem "lucide-rails"
