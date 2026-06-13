@@ -1,6 +1,7 @@
 <div class="relative" data-controller="input">
     <input 
         type="<%= input_type %>"
+        data-action="input->input#verifyPassword"
         placeholder="<%= @placeholder || "Enter your text here" %>"
         class="block w-full px-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600 transition-all duration-200"
         <%= %(value="#{@value}") if @value.present? %>>
@@ -13,4 +14,5 @@
         <%= helpers.lucide_icon("eye-off", class: "block", data: { input_target: "eyeOff" }) %>
        </div> 
     </button>
+     <span class="hidden text-red-500 text-sm px-4" data-input-target="error"></span>
 </div>
