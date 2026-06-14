@@ -28,15 +28,11 @@
 
   <body class="h-full bg-slate-50 text-slate-900">
     <% if notice %>
-      <div class="fixed top-4 right-4 z-50 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg border border-green-600 font-medium animate-in fade-in slide-in-from-top-4 duration-300">
-        <%= notice %>
-      </div>
+      <%= render(Toast::Component.new(message: notice, type: "success")) %>
     <% end %>
 
     <% if alert %>
-      <div class="fixed top-4 right-4 z-50 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg border border-red-600 font-medium animate-in fade-in slide-in-from-top-4 duration-300">
-        <%= alert %>
-      </div>
+      <%= render(Toast::Component.new(message: alert, type: "error")) %>
     <% end %>
 
     <main class="h-full">

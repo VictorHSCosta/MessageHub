@@ -40,8 +40,22 @@
   }
 }
 
+@keyframes toast-progress {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0%;
+  }
+}
+
 @layer utilities {
   .animate-float {
     animation: float 8s ease-in-out infinite;
+  }
+
+  .animate-progress {
+    animation: toast-progress 5s linear forwards;
   }
 }

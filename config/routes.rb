@@ -13,10 +13,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   #
-  Rails.application.routes.draw do
-    if Rails.env.development?
-      mount Lookbook::Engine, at: "/lookbook"
-    end
+  if Rails.env.development?
+    mount Lookbook::Engine, at: "/lookbook"
   end
 
   root "home#index"
