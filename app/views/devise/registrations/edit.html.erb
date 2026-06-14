@@ -1,0 +1,49 @@
+<%= render layout: "devise/shared/auth_shell", locals: { title: "Editar perfil", subtitle: "Atualize seus dados de acesso e segurança." } do %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "space-y-6" }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="space-y-5">
+      <div>
+        <%= f.label :email, "E-mail", class: "block text-sm font-semibold text-slate-700 mb-2 ml-1" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "block w-full px-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600 transition-all duration-200" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div class="text-sm text-amber-700 bg-amber-50 border border-amber-200 p-3 rounded-2xl">
+          Aguardando confirmação para: <%= resource.unconfirmed_email %>
+        </div>
+      <% end %>
+
+      <div class="pt-5 border-t border-slate-100">
+        <div class="flex justify-between items-center mb-2 ml-1 gap-4">
+          <%= f.label :password, "Nova senha", class: "text-sm font-semibold text-slate-700" %>
+          <span class="text-xs font-medium text-slate-400">deixe em branco se não quiser alterar</span>
+        </div>
+        <%= render(Input::Component.new(form: f, field: :password, type: "password", autocomplete: "new-password")) %>
+      </div>
+
+      <div>
+        <%= f.label :password_confirmation, "Confirme a nova senha", class: "block text-sm font-semibold text-slate-700 mb-2 ml-1" %>
+        <%= render(Input::Component.new(form: f, field: :password_confirmation, type: "password", autocomplete: "new-password")) %>
+      </div>
+
+      <div class="pt-5 border-t border-slate-100">
+        <%= f.label :current_password, "Senha atual", class: "block text-sm font-semibold text-slate-700 mb-2 ml-1" %>
+        <p class="text-xs font-medium text-slate-400 mb-2 ml-1">Precisamos da sua senha atual para confirmar as alterações.</p>
+        <%= render(Input::Component.new(form: f, field: :current_password, type: "password", autocomplete: "current-password")) %>
+      </div>
+    </div>
+
+    <%= f.submit "Atualizar", class: "w-full py-4 px-6 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-2xl shadow-[0_10px_20px_-5px_rgba(107,76,230,0.4)] hover:shadow-[0_15px_25px_-5px_rgba(107,76,230,0.5)] transform hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 cursor-pointer" %>
+  <% end %>
+
+  <div class="mt-8 pt-8 border-t border-slate-100">
+    <h3 class="text-lg font-bold text-red-600 mb-2">Encerrar conta</h3>
+    <p class="text-sm text-slate-500 mb-4">Você pode apagar sua conta permanentemente.</p>
+    <%= button_to "Apagar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?", turbo_confirm: "Tem certeza?" }, method: :delete, class: "text-sm text-red-600 font-semibold hover:underline" %>
+  </div>
+
+  <div class="text-center mt-6">
+    <%= link_to "Voltar", :back, class: "text-slate-400 hover:text-brand-600 transition-colors text-sm font-medium" %>
+  </div>
+<% end %>

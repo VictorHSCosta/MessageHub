@@ -61,6 +61,11 @@ group :development do
   gem "foreman"
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  gem "letter_opener"
+  gem "lookbook", ">= 2.3.14"
+  gem "listen"
+  gem "actioncable"
 end
 
 group :test do
@@ -68,3 +73,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "devise", "~> 5.0"
+
+gem "view_component"
+
+gem "lucide-rails"

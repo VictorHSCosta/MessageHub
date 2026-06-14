@@ -1,3 +1,61 @@
 @import "tailwindcss";
 
-/* Seu CSS personalizado aqui */
+@theme {
+  --font-sans: "Inter", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* 
+     Brand Color Scale (#6B4CE6 based)
+     Generated to follow Tailwind's standard 50-950 distribution
+  */
+  --color-brand-50: #f4f2ff;
+  --color-brand-100: #ebe8ff;
+  --color-brand-200: #d8d4ff;
+  --color-brand-300: #bbb2ff;
+  --color-brand-400: #9886fa;
+  --color-brand-500: #7b5af6;
+  --color-brand-600: #6b4ce6; /* Primary */
+  --color-brand-700: #5b39d1;
+  --color-brand-800: #4c2ead;
+  --color-brand-900: #40288d;
+  --color-brand-950: #26175e;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-slate-900 bg-slate-50;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(1deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes toast-progress {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0%;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .animate-progress {
+    animation: toast-progress 5s linear forwards;
+  }
+}

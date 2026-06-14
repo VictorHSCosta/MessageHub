@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
   <head>
     <title><%= content_for(:title) || "Message Hub" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,6 +11,10 @@
 
     <%= yield :head %>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
@@ -19,10 +23,20 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="h-full bg-slate-50 text-slate-900">
+    <% if notice %>
+      <%= render(Toast::Component.new(message: notice, type: "success")) %>
+    <% end %>
+
+    <% if alert %>
+      <%= render(Toast::Component.new(message: alert, type: "error")) %>
+    <% end %>
+
+    <main class="h-full">
+      <%= yield %>
+    </main>
   </body>
 </html>

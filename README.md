@@ -21,6 +21,30 @@ This project is a deep dive into:
 - **Testing:** RSpec, Factory Bot
 - **Linter:** RuboCop (Ruby), ESLint (JavaScript)
 
+## 📦 Installed Libraries
+
+### Ruby gems
+
+- **Rails 8.1:** Main web framework for the application.
+- **Devise:** Authentication layer for user registration, login, password recovery, and account flows.
+- **ViewComponent:** Component-based UI architecture for reusable Rails views.
+- **Lookbook:** Development preview environment for visualizing components.
+- **Lucide Rails:** Icon system used across interface components.
+- **Turbo Rails and Stimulus Rails:** Hotwire stack for reactive Rails screens.
+- **Propshaft, Importmap Rails, Jbuilder, Puma, PostgreSQL, Image Processing:** Core Rails app, assets, API, server, database, and media support.
+- **RSpec Rails and Factory Bot Rails:** Test suite and test data setup.
+- **RuboCop Rails Omakase, Brakeman, Bundler Audit:** Ruby style, security scanning, and dependency auditing.
+- **Letter Opener, Dotenv Rails, Foreman, Listen, Web Console, Debug:** Development workflow, local environment, preview, and debugging tools.
+- **Solid Cache, Solid Queue, Solid Cable, Action Cable:** Rails-backed cache, jobs, and realtime infrastructure.
+
+### JavaScript packages
+
+- **Vite:** Frontend build pipeline.
+- **Tailwind CSS v4 and Tailwind CLI:** Utility-first styling and CSS build output.
+- **Hotwired Turbo Rails and Hotwired Stimulus:** Browser-side Hotwire behavior.
+- **PostCSS and Autoprefixer:** CSS processing and browser compatibility.
+- **ESLint, @eslint/js, globals:** JavaScript linting for the app code.
+
 ## 📊 Database Schema
 
 Below is the initial entity-relationship diagram for the project:
@@ -40,7 +64,7 @@ Below is the initial entity-relationship diagram for the project:
 
 ### Prerequisites
 
-- Ruby 3.x
+- Ruby 3.3.8
 - Node.js & pnpm
 - PostgreSQL
 
@@ -77,8 +101,28 @@ bundle exec rspec
 
 ## 🧹 Quality Control
 
-- **Ruby:** `bundle exec rubocop`
-- **JavaScript:** `pnpm lint`
+- **Ruby lint:** `bundle exec rubocop`
+- **Ruby auto-fix:** `bundle exec rubocop -A`
+- **RSpec:** `bundle exec rspec`
+- **JavaScript lint:** `pnpm lint`
+- **JavaScript auto-fix:** `pnpm lint --fix`
+
+Ruby commands use `bundle exec` because RuboCop and RSpec are installed inside the project's bundle, not as global shell commands.
+
+## 🗓️ Branch Addition Log
+
+Branch: `Create-login-with-divise-and-add-some-importants-gems`
+
+- **14 de junho de 2026, 19:00 (BRT):** Foi adicionada a base de autenticacao do MessageHub, abrindo caminho para cadastro, login e recuperacao de acesso com uma experiencia mais completa para o usuario.
+- **14 de junho de 2026, 19:00 (BRT):** Foi adicionada uma camada visual mais refinada para as telas de autenticacao, deixando a entrada no app mais consistente, moderna e alinhada com a identidade do projeto.
+- **14 de junho de 2026, 19:00 (BRT):** Foi adicionada uma estrutura de componentes reutilizaveis para inputs, melhorando manutencao, padronizacao e evolucao da interface.
+- **14 de junho de 2026, 19:00 (BRT):** Foi adicionada uma experiencia mais inteligente para campos de senha, incluindo alternancia de visibilidade e feedback visual durante o preenchimento.
+- **14 de junho de 2026, 19:00 (BRT):** Foi adicionada uma camada de validacao e orientacao para senhas, tornando o fluxo de criacao de conta mais claro e confiavel.
+- **14 de junho de 2026, 19:00 (BRT):** Foi adicionada a integracao com Lookbook, permitindo visualizar componentes em isolamento e acelerar o desenvolvimento da UI.
+- **14 de junho de 2026, 19:00 (BRT):** Foi adicionada uma base moderna de assets com Vite, pnpm e Tailwind CSS v4, preparando o projeto para uma evolucao frontend mais organizada.
+- **14 de junho de 2026, 19:00 (BRT):** Foi adicionada a visualizacao local de emails em desenvolvimento, facilitando testes de fluxos como confirmacao e recuperacao de senha.
+- **14 de junho de 2026, 19:00 (BRT):** Foi adicionado um componente de toast com animacoes, criando uma base para mensagens rapidas e feedbacks elegantes dentro da aplicacao.
+- **14 de junho de 2026, 19:00 (BRT):** Foi adicionada uma estrutura inicial de qualidade com RSpec, Factory Bot, RuboCop e ESLint, fortalecendo a confiabilidade da branch.
 
 ---
 
