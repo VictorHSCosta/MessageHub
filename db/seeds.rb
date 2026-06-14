@@ -14,7 +14,7 @@ User.delete_all
 users = 50.times.map do |index|
   number = index + 1
   full_name = Faker::Name.name
-  username_base = Faker::Internet.unique.username(specifier: full_name, separators: ["_"]).parameterize(separator: "_")
+  username_base = Faker::Internet.unique.username(specifier: full_name, separators: [ "_" ]).parameterize(separator: "_")
   username = "user_#{number.to_s.rjust(2, "0")}_#{username_base}"
 
   User.create!(
@@ -35,7 +35,7 @@ users.each do |user|
   )
 end
 
-friend_targets = users.to_h { |user| [user.id, random.rand(2..5)] }
+friend_targets = users.to_h { |user| [ user.id, random.rand(2..5) ] }
 friend_degrees = Hash.new(0)
 accepted_edges = []
 edge_keys = {}
@@ -47,11 +47,11 @@ edge_keys = {}
   next if friend_degrees[requester.id] >= friend_targets[requester.id]
   next if friend_degrees[addressee.id] >= friend_targets[addressee.id]
 
-  key = [requester.id, addressee.id].sort
+  key = [ requester.id, addressee.id ].sort
   next if edge_keys[key]
 
   edge_keys[key] = true
-  accepted_edges << [requester, addressee].shuffle(random: random)
+  accepted_edges << [ requester, addressee ].shuffle(random: random)
   friend_degrees[requester.id] += 1
   friend_degrees[addressee.id] += 1
 end
@@ -72,20 +72,20 @@ blocked_edges = []
 
 while pending_edges.size < 14
   requester, addressee = users.sample(2, random: random)
-  key = [requester.id, addressee.id].sort
+  key = [ requester.id, addressee.id ].sort
   next if relationship_keys[key]
 
   relationship_keys[key] = true
-  pending_edges << [requester, addressee]
+  pending_edges << [ requester, addressee ]
 end
 
 while blocked_edges.size < 8
   requester, addressee = users.sample(2, random: random)
-  key = [requester.id, addressee.id].sort
+  key = [ requester.id, addressee.id ].sort
   next if relationship_keys[key]
 
   relationship_keys[key] = true
-  blocked_edges << [requester, addressee]
+  blocked_edges << [ requester, addressee ]
 end
 
 pending_edges.each do |requester, addressee|
@@ -125,7 +125,7 @@ accepted_edges.sample(35, random: random).each do |user_a, user_b|
     updated_at: started_at + random.rand(1..24).hours
   )
 
-  [user_a, user_b].each do |user|
+  [ user_a, user_b ].each do |user|
     ConversationParticipant.create!(
       conversation: conversation,
       user: user,
@@ -137,7 +137,7 @@ accepted_edges.sample(35, random: random).each do |user_a, user_b|
   end
 
   random.rand(3..7).times do |message_index|
-    author = [user_a, user_b].sample(random: random)
+    author = [ user_a, user_b ].sample(random: random)
     sent_at = started_at + message_index.hours + random.rand(1..45).minutes
     create_message!(conversation, author, Faker::Lorem.sentence(word_count: random.rand(4..10)), sent_at)
   end
@@ -148,7 +148,7 @@ group_specs = 12.times.map do
   name = "#{Faker::Company.unique.name} #{suffix}"
   participant_count = random.rand(4..12)
 
-  [name, participant_count]
+  [ name, participant_count ]
 end
 
 group_specs.each_with_index do |(name, participant_count), index|
