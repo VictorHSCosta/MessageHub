@@ -40,7 +40,7 @@ Below is the initial entity-relationship diagram for the project:
 
 ### Prerequisites
 
-- Ruby 3.x
+- Ruby 3.3.11
 - Node.js & pnpm
 - PostgreSQL
 

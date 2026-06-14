@@ -1,0 +1,3 @@
+---
+javascript_safe_methods:
+  - to_json

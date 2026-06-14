@@ -67,6 +67,7 @@ group :development do
   gem "lookbook", ">= 2.3.14"
   gem "listen"
   gem "actioncable"
+  gem "erb_lint", require: false
 end
 
 group :test do

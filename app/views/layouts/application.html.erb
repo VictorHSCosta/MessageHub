@@ -35,7 +35,10 @@
       <%= render(Toast::Component.new(message: alert, type: "error")) %>
     <% end %>
 
-    <main class="h-full">
+    <% signed_in = request.env["warden"] && user_signed_in? %>
+
+    <main class="<%= signed_in ? "h-full flex flex-row" : "h-full" %>">
+      <%= render("layouts/sidebar/index") if signed_in %>
       <%= yield %>
     </main>
   </body>

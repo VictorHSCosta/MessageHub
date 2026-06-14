@@ -1,0 +1,14 @@
+<div class="w-64 bg-white border-r border-slate-200">
+
+  <nav class="h-full flex flex-col justify-between">
+    <div>
+      <%= current_user.conversations.each do |conversation| %>
+        <div class="p-2 hover:bg-slate-100 cursor-pointer">
+          <%= conversation.name %>
+        </div>
+      <% end %>
+    </div>
+    <%= render("layouts/sidebar/user_drop_menu") %>
+  </nav>
+
+</div>
