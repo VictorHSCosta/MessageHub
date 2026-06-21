@@ -1,0 +1,17 @@
+<div class="flex flex-col items-center justify-center h-full p-4">
+  <h1 class="text-2xl font-semibold mb-4"><%= @user.username %>'s Profile</h1>
+
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar.variant(resize_to_limit: [150, 150]), class: "rounded-full mb-4" %>
+  <% else %>
+    <div class="w-32 h-32 bg-gray-300 rounded-full mb-4 flex items-center justify-center">
+      <span class="text-gray-600 text-xl"><%= @user.username.first.upcase %></span>
+    </div>
+  <% end %>
+
+  <p class="text-gray-700 mb-2">Email: <%= @user.email %></p>
+  <p class="text-gray-700 mb-2">Joined: <%= @user.created_at.strftime("%B %d, %Y") %></p>
+
+  <%= link_to "Edit Profile", edit_user_path(@user), class: "mt-4 px-4" %>
+
+</div>

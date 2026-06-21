@@ -17,5 +17,7 @@ Rails.application.routes.draw do
     mount Lookbook::Engine, at: "/lookbook"
   end
 
+  resources :user, only: [ :edit, :update, :show ]
+
   root "home#index"
 end

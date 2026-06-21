@@ -37,9 +37,12 @@
 
     <% signed_in = request.env["warden"] && user_signed_in? %>
 
-    <main class="<%= signed_in ? "h-full flex flex-row" : "h-full" %>">
+    <main class="<%= signed_in ? "h-full flex flex-row" : "h-full" %> overflow-hidden max-h-screen">
       <%= render("layouts/sidebar/index") if signed_in %>
-      <%= yield %>
+      
+      <div class="flex-1 overflow-auto">
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>
