@@ -1,0 +1,9 @@
+<div class="flex flex-row items-center p-2 hover:bg-slate-100 cursor-pointer">
+  <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center mr-3">
+    <span class="text-gray-600 text-sm"><%= @conversation.name&.first&.upcase %></span>
+      </div>
+  <div class="flex-1">
+    <p class="font-medium"><%= @conversation.name %></p>
+    <p class="text-sm text-gray-500"><%= @conversation.last_message %></p>
+  </div>
+</div>

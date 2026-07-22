@@ -1,7 +1,7 @@
 <div class="w-64 bg-white border-r border-slate-200">
   <nav class="h-full flex flex-col justify-between">
     <div>
-      <%= render partial: "layouts/sidebar/conversation", collection: @conversations, as: :conversation %>
+      <%= render Conversation::Component.with_collection(@conversations) %>
     </div>
     <%= render("layouts/sidebar/user_drop_menu") %>
   </nav>

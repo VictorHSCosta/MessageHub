@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
   # Changes to the importmap will invalidate the etag for HTML responses
   stale_when_importmap_changes
 
+  private
+
   def set_conversations
-    @conversations = current_user.conversations.includes(:conversation_participants, :messages).order(updated_at: :desc)
+    @conversations = current_user.conversations.includes(:messages).order(updated_at: :desc)
   end
 end

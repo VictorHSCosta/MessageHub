@@ -19,5 +19,7 @@ Rails.application.routes.draw do
 
   resources :user, only: [ :edit, :update, :show ]
 
+  resources :conversations, only: [ :index, :show ]
+
   root "home#index"
 end
